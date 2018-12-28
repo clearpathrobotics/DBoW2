@@ -14,7 +14,7 @@ endif()
 if(MSVC)
   add_compile_options(/W4)
 else()
-  add_compile_options(-Wall -Wextra -Wpedantic)
+  add_compile_options(-Wall -Wextra -Wpedantic -std=c++11)
 endif()
 
 set(HDRS
