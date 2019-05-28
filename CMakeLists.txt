@@ -1,4 +1,5 @@
-cmake_minimum_required(VERSION 3.0)
+
+cmake_minimum_required(VERSION 3.1)
 project(DBoW2 CXX C)
 
 option(BUILD_DBoW2 "Build DBoW2" ON)
@@ -9,10 +10,14 @@ if(NOT CMAKE_BUILD_TYPE AND NOT CMAKE_CONFIGURATION_TYPES)
   set_property(CACHE CMAKE_BUILD_TYPE PROPERTY STRINGS "Debug" "Release" "MinSizeRel" "RelWithDebInfo")
 endif()
 
+set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
+
 if(MSVC)
   add_compile_options(/W4)
 else()
-  add_compile_options(-Wall -Wextra -Wpedantic -std=c++11)
+  add_compile_options(-Wall -Wextra -Wpedantic)
 endif()
 
 set(SOURCES
